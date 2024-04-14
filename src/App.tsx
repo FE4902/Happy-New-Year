@@ -1,34 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Button } from './components/Button/Button';
+import { globalCss } from '@stitches/react';
+
+const globalStyles = globalCss({
+  '*': { margin: 0, padding: 0, fontFamily: 'inherit' },
+
+  body: {
+    fontFamily: '$pretendard',
+  }
+})
 
 function App() {
-  const [count, setCount] = useState(0)
+  globalStyles();
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div>
+      Hello Rabbit! 🐇 <br/>
+      <div style={{display: 'flex', alignItems: 'center', gap: '8px', marginTop: '16px'}}>
+        <Button size='small' color="dark">Button</Button>
+        <Button>Button</Button>
+        <Button size='large' color="light">Button</Button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div style={{display: 'flex', alignItems: 'center', gap: '8px', marginTop: '16px'}}>
+        <Button size='small' color="dark" outlined>Button</Button>
+        <Button outlined>Button</Button>
+        <Button size='large' color="light" outlined>Button</Button>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <div style={{display: 'flex', alignItems: 'center', gap: '8px', marginTop: '16px'}}>
+        <Button size='small' color="dark" disabled>Button</Button>
+        <Button disabled>Button</Button>
+        <Button size='large' color="light" disabled>Button</Button>
+      </div>
+      <div style={{display: 'flex', alignItems: 'center', gap: '8px', marginTop: '16px'}}>
+        <Button size='small' color="dark" outlined disabled>Button</Button>
+        <Button outlined disabled>Button</Button>
+        <Button size='large' color="light" outlined disabled>Button</Button>
+      </div>
+    </div>
   )
 }
 
