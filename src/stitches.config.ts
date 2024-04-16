@@ -1,4 +1,5 @@
 import { createStitches } from "@stitches/react";
+import type * as Stitches from '@stitches/react';
 
 export type { VariantProps } from "@stitches/react";
 
@@ -29,8 +30,9 @@ export const { styled } = createStitches({
             5: "20px",
             6: "24px",
             7: "32px",
-            8: "64px",
-            9: "128px",
+            8: "48px",
+            9: "64px",
+            10: "128px",
         },
         sizes: {
             1: "4px",
@@ -40,14 +42,15 @@ export const { styled } = createStitches({
             5: "20px",
             6: "24px",
             7: "32px",
-            8: "64px",
-            9: "128px",
+            8: "48px",
+            9: "64px",
+            10: "128px",
         },
         radii: {
             1: "4px",
             2: "8px",
             3: "16px",
-            pill: "1000px",
+            pill: "9999px",
             round: "50%",
         },
         fonts: {
