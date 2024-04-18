@@ -1,197 +1,205 @@
-import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
-import { styled, VariantProps } from '../../stitches.config';
-import { forwardRef } from 'react';
+import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
+import { styled, VariantProps } from "../../stitches.config";
+import { forwardRef } from "react";
 
 export const RadioGroup = styled(RadioGroupPrimitive.Root, {
-    display: 'flex',
-    gap: '$1',
+    display: "flex",
+    gap: "$1",
 });
 
-const Label = styled('label', {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '$1',
-    lineHeight: 'normal',
-    cursor: 'pointer',
+const Label = styled("label", {
+    display: "flex",
+    alignItems: "center",
+    gap: "$1",
+    lineHeight: "normal",
+    cursor: "pointer",
 
-    '&:has([disabled])': {
+    "&:has([disabled])": {
         opacity: 0.5,
-        cursor: 'default',
-        pointerEvents: 'none',
+        cursor: "default",
+        pointerEvents: "none",
     },
 });
 
-const RadioGroupPrimitiveItem = styled(RadioGroupPrimitive.Item, {
-    all: 'unset',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderRadius:'$round',
-    transition: '0.4s, outline-offset 0s, outline-width 0s, outline-style 0s, outline-color 0s',
+const RadioGroupItem = styled(RadioGroupPrimitive.Item, {
+    all: "unset",
+    borderWidth: "1px",
+    borderStyle: "solid",
+    borderRadius: "$round",
+    transition:
+        "0.4s, outline-offset 0s, outline-width 0s, outline-style 0s, outline-color 0s",
 
-    '&:active': {
-        transform: 'scale(0.95)'
+    "&:active": {
+        transform: "scale(0.95)",
     },
 
-    '&:focus-visible': {
-        outlineOffset: '2px',
-        outlineWidth: '4px',
-        outlineStyle: 'solid',
+    "&:focus-visible": {
+        outlineOffset: "2px",
+        outlineWidth: "4px",
+        outlineStyle: "solid",
     },
 
     variants: {
         size: {
             small: {
-                width: '$3',
-                height: '$3',
+                width: "$3",
+                height: "$3",
             },
             medium: {
-                width: '$4',
-                height: '$4',
+                width: "$4",
+                height: "$4",
             },
             large: {
-                width: '$5',
-                height: '$5',
+                width: "$5",
+                height: "$5",
             },
         },
         color: {
             brown: {
-                borderColor: '$brown2',
+                borderColor: "$brown2",
 
-                '&:hover': {
-                    backgroundColor: '$brown3',
+                "&:hover": {
+                    backgroundColor: "$brown3",
                 },
-                '&:focus-visible': {
-                    outlineColor: '$brown3',
+                "&:focus-visible": {
+                    outlineColor: "$brown3",
                 },
-                '&[data-state=checked]': {
-                    backgroundColor: '$brown2',
+                "&[data-state=checked]": {
+                    backgroundColor: "$brown2",
                 },
-                'path': {
-                    stroke: '$light2',
-                }
+                path: {
+                    stroke: "$light2",
+                },
             },
             dark: {
-                borderColor: '$dark2',
-                
-                '&:hover': {
-                    backgroundColor: '$dark3',
+                borderColor: "$dark2",
+
+                "&:hover": {
+                    backgroundColor: "$dark3",
                 },
-                '&:focus-visible': {
-                    outlineColor: '$dark3',
+                "&:focus-visible": {
+                    outlineColor: "$dark3",
                 },
-                '&[data-state=checked]': {
-                    backgroundColor: '$dark2',
+                "&[data-state=checked]": {
+                    backgroundColor: "$dark2",
                 },
-                'path': {
-                    stroke: '$light2',
-                }
+                path: {
+                    stroke: "$light2",
+                },
             },
             light: {
-                borderColor: '$dark2',
+                borderColor: "$dark2",
 
-                '&:hover': {
-                    backgroundColor: '$light3',
+                "&:hover": {
+                    backgroundColor: "$light3",
                 },
-                '&:focus-visible': {
-                    outlineColor: '$light3',
+                "&:focus-visible": {
+                    outlineColor: "$light3",
                 },
-                '&[data-state=checked]': {
-                    backgroundColor: '$light2',
+                "&[data-state=checked]": {
+                    backgroundColor: "$light2",
                 },
-                'path': {
-                    stroke: '$dark2',
-                }
-            }
-        }
+                path: {
+                    stroke: "$dark2",
+                },
+            },
+        },
     },
-    defaultVariants:  {
-        size: 'medium',
-        color: 'brown'
-    }
+    defaultVariants: {
+        size: "medium",
+        color: "brown",
+    },
 });
 
 const RadioGroupIndicator = styled(RadioGroupPrimitive.Indicator, {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '100%',
-    height: '100%',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    height: "100%",
 
-    '&::after': {
+    "&::after": {
         content: '""',
-        display: 'block',
-        width: '50%',
-        height: '50%',
-        borderRadius: '$round',
+        display: "block",
+        width: "50%",
+        height: "50%",
+        borderRadius: "$round",
     },
 
     variants: {
         color: {
             brown: {
-                '&::after': {
-                    backgroundColor: '$light2',
-                }
+                "&::after": {
+                    backgroundColor: "$light2",
+                },
             },
             dark: {
-                '&::after': {
-                    backgroundColor: '$light2',
-                }
+                "&::after": {
+                    backgroundColor: "$light2",
+                },
             },
             light: {
-                '&::after': {
-                    backgroundColor: '$dark2',
-                }
+                "&::after": {
+                    backgroundColor: "$dark2",
+                },
             },
-        }
+        },
     },
 
     defaultVariants: {
-        color: 'brown',
-    }
+        color: "brown",
+    },
 });
 
-const Span = styled('span', {
+const Span = styled("span", {
     variants: {
         size: {
             small: {
-                fontSize: '$3',
+                fontSize: "$1",
             },
             medium: {
-                fontSize: '$4',
+                fontSize: "$2",
             },
             large: {
-                fontSize: '$5',
+                fontSize: "$3",
             },
         },
         color: {
             brown: {
-                color: '$brown2',
+                color: "$brown2",
             },
             dark: {
-                color: '$dark2',
+                color: "$dark2",
             },
             light: {
-                color: '$dark2',
+                color: "$dark2",
             },
         },
     },
-    defaultVariants:  {
-        size: 'medium',
-        color: 'brown'
-    }
+    defaultVariants: {
+        size: "medium",
+        color: "brown",
+    },
 });
 
-type RadioVariants = VariantProps<typeof RadioGroupPrimitiveItem>;
-type RadioItemPrimitiveProps = React.ComponentProps<typeof RadioGroupPrimitive.Item>;
+type RadioVariants = VariantProps<typeof RadioGroupItem>;
+type RadioItemPrimitiveProps = React.ComponentProps<
+    typeof RadioGroupPrimitive.Item
+>;
 type RadioProps = RadioItemPrimitiveProps & RadioVariants;
 
-export const Radio = forwardRef<React.ElementRef<typeof RadioGroupPrimitive.Item>, RadioProps>((props, ref) => {
+export const Radio = forwardRef<
+    React.ElementRef<typeof RadioGroupPrimitive.Item>,
+    RadioProps
+>((props, ref) => {
     return (
         <Label>
-            <RadioGroupPrimitiveItem {...props} ref={ref}>
-                <RadioGroupIndicator color={props.color}/>
-            </RadioGroupPrimitiveItem>
-            <Span size={props.size} color={props.color}>{props.children ?? props.value}</Span>
+            <RadioGroupItem {...props} ref={ref}>
+                <RadioGroupIndicator color={props.color} />
+            </RadioGroupItem>
+            <Span size={props.size} color={props.color}>
+                {props.children ?? props.value}
+            </Span>
         </Label>
-    )
+    );
 });
