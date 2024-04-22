@@ -1,7 +1,6 @@
 import { styled } from "../../stitches.config";
 
 export const IconButton = styled("button", {
-    all: "unset",
     display: "inline-flex",
     justifyContent: "center",
     alignItems: "center",

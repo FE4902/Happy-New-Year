@@ -22,7 +22,6 @@ const Label = styled("label", {
 });
 
 const RadioGroupItem = styled(RadioGroupPrimitive.Item, {
-    all: "unset",
     borderWidth: "1px",
     borderStyle: "solid",
     borderRadius: "$round",

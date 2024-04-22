@@ -17,7 +17,6 @@ const Label = styled("label", {
 });
 
 const CheckboxRoot = styled(CheckboxPrimitive.Root, {
-    all: "unset",
     borderWidth: "1px",
     borderStyle: "solid",
     borderRadius: "$1",

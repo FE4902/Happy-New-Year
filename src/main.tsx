@@ -1,12 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import { DesignSystemProvider } from "./components/DesignSystemProvider/DesignSystemProvider.tsx";
+import { TooltipProvider } from "@radix-ui/react-tooltip";
+// import { ToastProvider } from '@radix-ui/react-toast';
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <React.StrictMode>
-        <DesignSystemProvider>
+        {/* <ToastProvider> */}
+        <TooltipProvider>
             <App />
-        </DesignSystemProvider>
+        </TooltipProvider>
+        {/* </ToastProvider> */}
     </React.StrictMode>
 );

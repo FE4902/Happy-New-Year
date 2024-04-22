@@ -3,7 +3,6 @@ import { forwardRef } from "react";
 import { styled, VariantProps } from "../../stitches.config";
 
 const SwitchRoot = styled(SwitchPrimitive.Root, {
-    all: "unset",
     position: "relative",
     borderRadius: "$pill",
     border: "1px solid $colors$dark2",
