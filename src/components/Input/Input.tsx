@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import { styled, VariantProps } from "../../stitches.config";
+import { Slot } from "@radix-ui/react-slot";
 
 const Wrap = styled("div", {
     position: "relative",
@@ -7,25 +8,46 @@ const Wrap = styled("div", {
 });
 
 const StyledInput = styled("input", {
+    position: "relative",
+    width: "100%",
     border: "1px solid",
     borderRadius: "$1",
 
-    "&:has([disabled])": {
+    "&[disabled]": {
         opacity: 0.5,
         cursor: "default",
         pointerEvents: "none",
+    },
+
+    "&:focus": {
+        outlineOffset: "2px",
+        outlineWidth: "4px",
+        outlineStyle: "solid",
+        transition: "0s",
     },
 
     variants: {
         color: {
             brown: {
                 borderColor: "$brown2",
+
+                "&:focus-visible": {
+                    outlineColor: "$brown3",
+                },
             },
             dark: {
                 borderColor: "$dark2",
+
+                "&:focus-visible": {
+                    outlineColor: "$dark3",
+                },
             },
             light: {
-                borderColor: "$light2",
+                borderColor: "$dark2",
+
+                "&:focus-visible": {
+                    outlineColor: "$light3",
+                },
             },
         },
         size: {
@@ -34,16 +56,12 @@ const StyledInput = styled("input", {
                 padding: "0 $1",
                 fontSize: "$1",
 
-                "*:has(+ &), & + *": {
-                    backgroundColor: "red",
-                },
-
                 "* + &": {
-                    backgroundColor: "red",
+                    paddingLeft: "$5",
                 },
 
                 "&:has( ~ *)": {
-                    backgroundColor: "red",
+                    paddingRight: "$5",
                 },
             },
             medium: {
@@ -51,16 +69,12 @@ const StyledInput = styled("input", {
                 padding: "0 $2",
                 fontSize: "$2",
 
-                "*:has(+ &), & + *": {
-                    backgroundColor: "red",
-                },
-
                 "* + &": {
-                    backgroundColor: "red",
+                    paddingLeft: "$6",
                 },
 
                 "&:has( ~ *)": {
-                    backgroundColor: "red",
+                    paddingRight: "$6",
                 },
             },
             large: {
@@ -68,16 +82,12 @@ const StyledInput = styled("input", {
                 padding: "0 $3",
                 fontSize: "$3",
 
-                "*:has(+ &), & + *": {
-                    backgroundColor: "red",
-                },
-
                 "* + &": {
-                    backgroundColor: "red",
+                    paddingLeft: "$7",
                 },
 
                 "&:has( ~ *)": {
-                    backgroundColor: "red",
+                    paddingRight: "$7",
                 },
             },
         },
@@ -88,8 +98,41 @@ const StyledInput = styled("input", {
     },
 });
 
-// React.InputHTMLAttributes<HTMLInputElement>
-// type InputProps = InputVariants & React.InputHTMLAttributes<HTMLInputElement>;
+const StyledSlot = styled(Slot, {
+    position: "absolute",
+    zIndex: 1,
+    transform: "translateY(-50%)",
+    top: "50%",
+
+    variants: {
+        size: {
+            small: {
+                width: "$4",
+                height: "$4",
+            },
+            medium: {
+                width: "$5",
+                height: "$5",
+            },
+            large: {
+                width: "$6",
+                height: "$6",
+            },
+        },
+    },
+    defaultVariants: {
+        size: "medium",
+    },
+});
+
+const LeftSlot = styled(StyledSlot, {
+    left: "$1",
+});
+
+const RightSlot = styled(StyledSlot, {
+    right: "$1",
+});
+
 type InputVariants = VariantProps<typeof StyledInput>;
 type InputProps = InputVariants & React.ComponentProps<typeof StyledInput>;
 interface ExtendedInputProps extends InputProps {
@@ -99,11 +142,13 @@ interface ExtendedInputProps extends InputProps {
 
 export const Input = forwardRef<HTMLInputElement, ExtendedInputProps>(
     (props, ref) => {
+        const { width, leftSlot, rightSlot, ...rest } = props;
+
         return (
-            <Wrap>
-                {props.leftSlot}
-                <StyledInput {...props} ref={ref} />
-                {props.rightSlot}
+            <Wrap css={{ width: width }}>
+                <LeftSlot size={props.size}>{leftSlot}</LeftSlot>
+                <StyledInput {...rest} ref={ref} />
+                <RightSlot size={props.size}>{rightSlot}</RightSlot>
             </Wrap>
         );
     }

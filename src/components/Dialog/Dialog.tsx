@@ -4,6 +4,7 @@ import { forwardRef } from "react";
 import { IconButton } from "../IconButton/IconButton";
 
 const StyledOverlay = styled(DialogPrimitive.Overlay, {
+    zIndex: 1000,
     position: "fixed",
     left: 0,
     top: 0,
@@ -14,6 +15,7 @@ const StyledOverlay = styled(DialogPrimitive.Overlay, {
 });
 
 const StyledContent = styled(DialogPrimitive.Content, {
+    zIndex: 1010,
     position: "fixed",
     top: "50%",
     left: "50%",

@@ -5,7 +5,10 @@ export const IconButton = styled("button", {
     justifyContent: "center",
     alignItems: "center",
     borderRadius: "$round",
+    border: "0",
     cursor: "pointer",
+    transition: "0.4s",
+    boxSizing: "border-box",
 
     "&:active": {
         transform: "scale(0.95)",

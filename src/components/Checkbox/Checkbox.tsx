@@ -22,6 +22,7 @@ const CheckboxRoot = styled(CheckboxPrimitive.Root, {
     borderRadius: "$1",
     transition:
         "0.4s, outline-offset 0s, outline-width 0s, outline-style 0s, outline-color 0s",
+    cursor: "pointer",
 
     "&:active": {
         transform: "scale(0.95)",
