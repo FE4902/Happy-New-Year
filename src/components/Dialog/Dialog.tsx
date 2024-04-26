@@ -23,7 +23,7 @@ const StyledContent = styled(DialogPrimitive.Content, {
     minWidth: "300px",
     padding: "$3 $4",
     backgroundColor: "$light1",
-    borderRadius: "$2",
+    borderRadius: "$1",
     boxShadow: "0 3px 10px 0 rgba(0, 0, 0, 0.5)",
 
     "&:focus": {
@@ -43,7 +43,7 @@ const StyledClose = styled(DialogPrimitive.Close, {
     right: "$3",
 });
 
-type DialogContentProps = React.ComponentProps<typeof DialogPrimitive.Content>;
+type DialogContentProps = React.ComponentProps<typeof StyledContent>;
 
 const DialogContent = forwardRef<
     React.ElementRef<typeof StyledContent>,

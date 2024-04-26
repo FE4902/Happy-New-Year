@@ -21,7 +21,7 @@ const Label = styled("label", {
     },
 });
 
-const RadioGroupItem = styled(RadioGroupPrimitive.Item, {
+const StyledRadioGroupItem = styled(RadioGroupPrimitive.Item, {
     borderWidth: "1px",
     borderStyle: "solid",
     borderRadius: "$round",
@@ -110,7 +110,7 @@ const RadioGroupItem = styled(RadioGroupPrimitive.Item, {
     },
 });
 
-const RadioGroupIndicator = styled(RadioGroupPrimitive.Indicator, {
+const StyledRadioGroupIndicator = styled(RadioGroupPrimitive.Indicator, {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -181,21 +181,21 @@ const Span = styled("span", {
     },
 });
 
-type RadioVariants = VariantProps<typeof RadioGroupItem>;
+type RadioVariants = VariantProps<typeof StyledRadioGroupItem>;
 type RadioItemPrimitiveProps = React.ComponentProps<
-    typeof RadioGroupPrimitive.Item
+    typeof StyledRadioGroupItem
 >;
 type RadioProps = RadioItemPrimitiveProps & RadioVariants;
 
 export const Radio = forwardRef<
-    React.ElementRef<typeof RadioGroupPrimitive.Item>,
+    React.ElementRef<typeof StyledRadioGroupItem>,
     RadioProps
 >((props, ref) => {
     return (
         <Label>
-            <RadioGroupItem {...props} ref={ref}>
-                <RadioGroupIndicator color={props.color} />
-            </RadioGroupItem>
+            <StyledRadioGroupItem {...props} ref={ref}>
+                <StyledRadioGroupIndicator color={props.color} />
+            </StyledRadioGroupItem>
             <Span size={props.size} color={props.color}>
                 {props.children ?? props.value}
             </Span>

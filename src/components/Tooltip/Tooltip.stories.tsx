@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { TooltipProvider } from "@radix-ui/react-tooltip";
 import { Tooltip } from "./Tooltip";
 import { Button } from "../Button/Button";
 
@@ -33,11 +32,9 @@ export const Default: Story = {
         },
     },
     render: () => (
-        <TooltipProvider>
-            <Tooltip content="Hello, Tooltip!">
-                <Button>Tooltip Trigger</Button>
-            </Tooltip>
-        </TooltipProvider>
+        <Tooltip content="Hello, Tooltip!">
+            <Button>Tooltip Trigger</Button>
+        </Tooltip>
     ),
 };
 
@@ -50,9 +47,7 @@ export const Children: Story = {
         },
     },
     render: (args) => (
-        <TooltipProvider>
-            <Tooltip content="Hello, Tooltip!">{args.children}</Tooltip>
-        </TooltipProvider>
+        <Tooltip content="Hello, Tooltip!">{args.children}</Tooltip>
     ),
     args: {
         children: <span>Children</span>,
@@ -68,11 +63,9 @@ export const Content: Story = {
         },
     },
     render: (args) => (
-        <TooltipProvider>
-            <Tooltip content={args.content}>
-                <Button>Tooltip Trigger</Button>
-            </Tooltip>
-        </TooltipProvider>
+        <Tooltip content={args.content}>
+            <Button>Tooltip Trigger</Button>
+        </Tooltip>
     ),
     args: {
         content: "Content",

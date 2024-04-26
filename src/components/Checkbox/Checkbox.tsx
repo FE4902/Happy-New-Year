@@ -16,7 +16,7 @@ const Label = styled("label", {
     },
 });
 
-const CheckboxRoot = styled(CheckboxPrimitive.Root, {
+const StyledCheckboxRoot = styled(CheckboxPrimitive.Root, {
     borderWidth: "1px",
     borderStyle: "solid",
     borderRadius: "$1",
@@ -107,7 +107,7 @@ const CheckboxRoot = styled(CheckboxPrimitive.Root, {
     },
 });
 
-const CheckboxIndicator = styled(CheckboxPrimitive.Indicator, {
+const StyledCheckboxIndicator = styled(CheckboxPrimitive.Indicator, {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -152,20 +152,20 @@ const Span = styled("span", {
     },
 });
 
-type CheckboxVariants = VariantProps<typeof CheckboxRoot>;
+type CheckboxVariants = VariantProps<typeof StyledCheckboxRoot>;
 type CheckboxRootPrimitiveProps = React.ComponentProps<
-    typeof CheckboxPrimitive.Root
+    typeof StyledCheckboxRoot
 >;
 type CheckboxProps = CheckboxRootPrimitiveProps & CheckboxVariants;
 
 export const Checkbox = forwardRef<
-    React.ElementRef<typeof CheckboxRoot>,
+    React.ElementRef<typeof StyledCheckboxRoot>,
     CheckboxProps
 >((props, ref) => {
     return (
         <Label>
-            <CheckboxRoot {...props} ref={ref}>
-                <CheckboxIndicator>
+            <StyledCheckboxRoot {...props} ref={ref}>
+                <StyledCheckboxIndicator>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -179,8 +179,8 @@ export const Checkbox = forwardRef<
                             d="m4.5 12.75 6 6 9-13.5"
                         />
                     </svg>
-                </CheckboxIndicator>
-            </CheckboxRoot>
+                </StyledCheckboxIndicator>
+            </StyledCheckboxRoot>
             <Span size={props.size} color={props.color}>
                 {props.children}
             </Span>
